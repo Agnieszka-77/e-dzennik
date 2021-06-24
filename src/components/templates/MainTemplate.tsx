@@ -1,5 +1,12 @@
+import Navigation from "components/organisms/Navigation/Navigation";
+
 const MainTemplate: React.FC = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <>
+      <Navigation />
+      <div>{children}</div>
+    </>
+  );
 };
 
 export default MainTemplate;

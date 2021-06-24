@@ -1,39 +1,33 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MainTemplate from "components/templates/MainTemplate";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "view/pages/Login";
 import Profile from "view/pages/Profile";
 import Pulpit from "view/pages/Pulpit";
+import LoggedRoute from "components/atoms/LoggedRoute/LoggedRoute";
+import UserProvider from "providers/UserProvider";
 
-const App = () => {
+const Root = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/profile">profile</Link>
-            </li>
-            <li>
-              <Link to="/pulpit">pulpit</Link>
-            </li>
-            <li>
-              <Link to="/">logout</Link>
-            </li>
-          </ul>
-        </nav>
+      <UserProvider>
         <Switch>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/pulpit">
-            <Pulpit />
-          </Route>
-          <Route path="/">
+          <LoggedRoute exact path="/">
             <Login />
-          </Route>
+          </LoggedRoute>
+          <LoggedRoute path="/profile">
+            <MainTemplate>
+              <Profile />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path="/pulpit">
+            <MainTemplate>
+              <Pulpit />
+            </MainTemplate>
+          </LoggedRoute>
         </Switch>
-      </div>
+      </UserProvider>
     </Router>
   );
 };
 
-export default App;
+export default Root;
