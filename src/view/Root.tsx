@@ -1,3 +1,4 @@
+import WithoutMenuTemplate from "components/templates/WithoutMenuTemplate";
 import MainTemplate from "components/templates/MainTemplate";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "view/pages/Login";
@@ -12,7 +13,9 @@ const Root = () => {
       <UserProvider>
         <Switch>
           <LoggedRoute exact path="/">
-            <Login />
+            <WithoutMenuTemplate>
+              <Login />
+            </WithoutMenuTemplate>
           </LoggedRoute>
           <LoggedRoute path="/profile">
             <MainTemplate>

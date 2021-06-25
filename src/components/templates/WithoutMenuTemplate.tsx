@@ -1,5 +1,11 @@
+import GlobalStyle from "theme/GlobalStyle";
 const WithoutMenuTemplate: React.FC = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <>
+      <GlobalStyle />
+      {children}
+    </>
+  );
 };
 
 export default WithoutMenuTemplate;
