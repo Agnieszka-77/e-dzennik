@@ -3,7 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     *,*::after,*::before{
         box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
+        font-family: ${({ theme }) => theme.font.family.primary};
+        margin-top:0;
     }
 
     body{
