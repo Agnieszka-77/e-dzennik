@@ -1,9 +1,9 @@
 import WithoutMenuTemplate from "components/templates/WithoutMenuTemplate";
 import MainTemplate from "components/templates/MainTemplate";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import Login from "view/pages/Login";
-import Profile from "view/pages/Profile";
-import Pulpit from "view/pages/Pulpit";
+import Login from "view/pages/Login/Login";
+import Profile from "view/pages/Profile/Profile";
+import Pulpit from "view/pages/Pulpit/Pulpit";
 import LoggedRoute from "components/atoms/LoggedRoute/LoggedRoute";
 import UserProvider from "providers/UserProvider";
 

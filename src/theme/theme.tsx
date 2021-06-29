@@ -9,6 +9,11 @@ declare module "styled-components" {
       background: string;
       text: string;
     };
+    screen: {
+      tablet: string;
+      laptop: string;
+      desktop: string;
+    };
     font: {
       family: { primary: string; secondary: string; tertiary: string };
       size: {
@@ -35,6 +40,11 @@ export const theme = {
     thirdary: "snow",
     background: "snow",
     text: "black",
+  },
+  screen: {
+    tablet: "768px",
+    laptop: "1366px",
+    desktop: "1920px",
   },
   font: {
     family: { primary: `'Roboto', sans-serif`, secondary: `'Roboto', sans-serif`, tertiary: `'Roboto', sans-serif` },
