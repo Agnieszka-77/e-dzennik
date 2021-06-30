@@ -17,7 +17,7 @@ declare module "styled-components" {
     font: {
       family: { primary: string; secondary: string; tertiary: string };
       size: {
-        sx: string;
+        xs: string;
         s: string;
         m: string;
         l: string;
@@ -49,7 +49,7 @@ export const theme = {
   font: {
     family: { primary: `'Roboto', sans-serif`, secondary: `'Roboto', sans-serif`, tertiary: `'Roboto', sans-serif` },
     size: {
-      sx: "12px",
+      xs: "12px",
       s: "16px",
       m: "24px",
       l: "36px",

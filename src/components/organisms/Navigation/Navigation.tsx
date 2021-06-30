@@ -1,46 +1,55 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "providers/UserProvider";
-import styled from "styled-components";
 import StyledNavLink from "components/atoms/StyledNavLink/StyledNavLink";
 import pulpitIcon from "assets/images/pulpitIcon.svg";
 import profileIcon from "assets/images/profileIcon.svg";
-
-const Wrapper = styled.nav`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  height: 100%;
-  width: 30%;
-  border-right: solid 4px ${({ theme }) => theme.color.primary};
-`;
+import Title from "components/atoms/Title/Title";
+import { Hamburger, Wrapper } from "./Navigation.style";
 
 const Navigation: React.FC = () => {
   const [, setUser] = useContext(UserContext);
+  const [active, setActive] = useState(false);
+
+  const handlerMenu = () => {
+    setActive(!active);
+  };
+
+  const closeMenu = () => {
+    setActive(false);
+  };
+
   return (
-    <Wrapper>
-      <h2>E-DZIENNIK</h2>
-      <div>
-        <StyledNavLink to="/pulpit" src={pulpitIcon} exact>
-          <span>pulpit</span>
+    <>
+      <Hamburger active={active} onClick={handlerMenu} />
+      <Wrapper active={active}>
+        <Title size="l" color="primary">
+          Journal
+        </Title>
+        <div>
+          <StyledNavLink to="/desktop" src={pulpitIcon} exact onClick={closeMenu}>
+            <span>desktop</span>
+          </StyledNavLink>
+          <StyledNavLink to="/profile" src={profileIcon} exact onClick={closeMenu}>
+            <span>profile</span>
+          </StyledNavLink>
+          <StyledNavLink to="/grades" src={profileIcon} exact onClick={closeMenu}>
+            <span>grades</span>
+          </StyledNavLink>
+        </div>
+        <StyledNavLink
+          to="/"
+          exact
+          margin="auto auto 0"
+          onClick={() => {
+            setUser(false, "0");
+            localStorage.setItem("loggedIn", "false");
+            localStorage.setItem("level", "0");
+          }}
+        >
+          logout
         </StyledNavLink>
-        <StyledNavLink to="/profile" src={profileIcon} exact>
-          <span>profile</span>
-        </StyledNavLink>
-      </div>
-      <StyledNavLink
-        to="/"
-        exact
-        margin="auto auto 0"
-        onClick={() => {
-          setUser(false, 0);
-          localStorage.setItem("loggedIn", "false");
-          localStorage.setItem("level", "0");
-        }}
-      >
-        logout
-      </StyledNavLink>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 

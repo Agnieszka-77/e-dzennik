@@ -1,7 +1,16 @@
+import { UserContext } from "providers/UserProvider";
+import { useContext } from "react";
+
 const Profil = () => {
+  const [user] = useContext(UserContext);
+  console.log(user);
   return (
     <div>
-      <p>{Profil.name}</p>
+      <p>
+        Imie:
+        {user.name}
+      </p>
+      <p>{user.level === "0" ? "Student" : "Wykładowca"}</p>
       <div>
         <button>Admin</button>
         <button>Nauczyciel</button>

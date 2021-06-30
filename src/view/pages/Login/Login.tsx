@@ -3,15 +3,12 @@ import { UserContext } from "providers/UserProvider";
 import Box from "components/atoms/Box/Box";
 import Button from "components/atoms/Button/Button";
 import WelcomeUser from "view/pages/Login/WelcomeUser";
-import { ButtonPanel, Content, HighlightedText, LeftSide, RightSide, Title, Wrapper } from "./Login.style";
+import { ButtonPanel, Content, HighlightedText, LeftSide, RightSide, Wrapper } from "./Login.style";
+import Title from "components/atoms/Title/Title";
+import { handlerCurrentUser, getUserById } from "helpers/helpers";
 
 const Login = () => {
-  const [user, setUser] = useContext(UserContext);
-
-  const handlerUser = (level: number) => {
-    setUser(false, level);
-    localStorage.setItem("level", level.toString());
-  };
+  const [user, setUser, users] = useContext(UserContext);
 
   const logIn = () => {
     setUser(true);
@@ -21,7 +18,9 @@ const Login = () => {
   return (
     <Wrapper>
       <LeftSide>
-        <Title>E-Dziennik</Title>
+        <Title color="background" margin="0px 10px 5px">
+          Journal
+        </Title>
         <Box
           width="clamp(300px,100%,80%)"
           backgroundColor="rgba(255,255,255,0.4)"
@@ -43,23 +42,19 @@ const Login = () => {
               </HighlightedText>
             </div>
             <ButtonPanel>
-              <Button
-                onClick={() => {
-                  handlerUser(2);
-                }}
-              >
+              <Button disabled onClick={() => {}}>
                 Admin
               </Button>
               <Button
                 onClick={() => {
-                  handlerUser(1);
+                  handlerCurrentUser(getUserById(users, "0"), setUser);
                 }}
               >
                 Teacher
               </Button>
               <Button
                 onClick={() => {
-                  handlerUser(0);
+                  handlerCurrentUser(getUserById(users, "1"), setUser);
                 }}
               >
                 Student

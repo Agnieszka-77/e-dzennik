@@ -10,7 +10,7 @@ const LoggedRoute: TypeLoggedRoute = ({ children, path, exact }) => {
   if (path === "/") {
     return (
       <Route exact={exact} path="/">
-        {loggedIn ? <Redirect to="/profile" /> : <>{children}</>}
+        {loggedIn ? <Redirect to="/Desktop" /> : <>{children}</>}
       </Route>
     );
   }

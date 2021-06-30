@@ -12,6 +12,11 @@ const Button = styled.button`
     background-color: ${({ theme: { color } }) => color.background};
     color: ${({ theme: { color } }) => color.primary};
   }
+  &:disabled {
+    color: grey;
+    border: grey;
+    background-color: lightgrey;
+  }
 `;
 
 export default Button;

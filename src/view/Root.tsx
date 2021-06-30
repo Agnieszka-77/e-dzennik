@@ -3,9 +3,10 @@ import MainTemplate from "components/templates/MainTemplate";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "view/pages/Login/Login";
 import Profile from "view/pages/Profile/Profile";
-import Pulpit from "view/pages/Pulpit/Pulpit";
+import Desktop from "view/pages/Desktop/Desktop";
 import LoggedRoute from "components/atoms/LoggedRoute/LoggedRoute";
 import UserProvider from "providers/UserProvider";
+import Grades from "./pages/Grades/Grades";
 
 const Root = () => {
   return (
@@ -22,9 +23,14 @@ const Root = () => {
               <Profile />
             </MainTemplate>
           </LoggedRoute>
-          <LoggedRoute path="/pulpit">
+          <LoggedRoute path="/desktop">
             <MainTemplate>
-              <Pulpit />
+              <Desktop />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path="/grades">
+            <MainTemplate>
+              <Grades />
             </MainTemplate>
           </LoggedRoute>
         </Switch>
