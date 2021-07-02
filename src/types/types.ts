@@ -1,11 +1,13 @@
+export interface ISubjects {
+  name: string;
+  grades: number[];
+}
+
 export interface IUser {
   id: string;
   name: string;
   level: string;
-  subjects?: {
-    name: string;
-    grades: number[];
-  }[];
+  subjects?: ISubjects[];
 }
 
 export interface ICurrentUser extends IUser {

@@ -5,7 +5,7 @@ import Button from "components/atoms/Button/Button";
 import WelcomeUser from "view/pages/Login/WelcomeUser";
 import { ButtonPanel, Content, HighlightedText, LeftSide, RightSide, Wrapper } from "./Login.style";
 import Title from "components/atoms/Title/Title";
-import { handlerCurrentUser, getUserById } from "helpers/helpers";
+import { handlerCurrentUser, getUserById } from "utils/utils";
 
 const Login = () => {
   const [user, setUser, users] = useContext(UserContext);

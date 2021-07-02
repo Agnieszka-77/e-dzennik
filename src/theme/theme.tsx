@@ -36,8 +36,8 @@ declare module "styled-components" {
 export const theme = {
   color: {
     primary: "#23b2ee",
-    secondary: "#23b2ee",
-    thirdary: "snow",
+    secondary: "#838BD0",
+    thirdary: "#76DF74",
     background: "snow",
     text: "black",
   },

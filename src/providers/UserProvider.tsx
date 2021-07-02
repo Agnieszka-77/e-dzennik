@@ -20,6 +20,105 @@ const usersData = [
         name: "c#",
         grades: [3, 4, 5],
       },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
+    ],
+  },
+  {
+    id: "2",
+    name: "tomasz",
+    level: "0",
+    subjects: [
+      {
+        name: "english",
+        grades: [2, 2, 3],
+      },
+      {
+        name: "c#",
+        grades: [2, 2, 5],
+      },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
+    ],
+  },
+  {
+    id: "3",
+    name: "Marek",
+    level: "0",
+    subjects: [
+      {
+        name: "english",
+        grades: [2, 2, 3],
+      },
+      {
+        name: "c#",
+        grades: [2, 2, 5],
+      },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
+    ],
+  },
+  {
+    id: "4",
+    name: "agnieszka",
+    level: "0",
+    subjects: [
+      {
+        name: "english",
+        grades: [2, 2, 3],
+      },
+      {
+        name: "c#",
+        grades: [2, 2, 5],
+      },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
+    ],
+  },
+  {
+    id: "5",
+    name: "kamil",
+    level: "0",
+    subjects: [
+      {
+        name: "english",
+        grades: [2, 2, 3],
+      },
+      {
+        name: "c#",
+        grades: [2, 2, 5],
+      },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
+    ],
+  },
+  {
+    id: "6",
+    name: "monika",
+    level: "0",
+    subjects: [
+      {
+        name: "english",
+        grades: [2, 2, 3],
+      },
+      {
+        name: "c#",
+        grades: [2, 2, 5],
+      },
+      {
+        name: "c++",
+        grades: [3, 4, 5],
+      },
     ],
   },
 ];
