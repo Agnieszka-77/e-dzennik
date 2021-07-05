@@ -1,39 +1,49 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "view/pages/Login";
-import Profile from "view/pages/Profile";
-import Pulpit from "view/pages/Pulpit";
+import WithoutMenuTemplate from "components/templates/WithoutMenuTemplate";
+import MainTemplate from "components/templates/MainTemplate";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Login from "view/pages/Login/Login";
+import Profile from "view/pages/Profile/Profile";
+import Desktop from "view/pages/Desktop/Desktop";
+import LoggedRoute from "components/molecules/LoggedRoute/LoggedRoute";
+import UserProvider from "providers/UserProvider";
+import Grades from "./pages/Grades/Grades";
+import { Routes } from "utils/utils";
+import Students from "./pages/Students/Students";
 
-const App = () => {
+const Root = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/profile">profile</Link>
-            </li>
-            <li>
-              <Link to="/pulpit">pulpit</Link>
-            </li>
-            <li>
-              <Link to="/">logout</Link>
-            </li>
-          </ul>
-        </nav>
+      <UserProvider>
         <Switch>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/pulpit">
-            <Pulpit />
-          </Route>
-          <Route path="/">
-            <Login />
-          </Route>
+          <LoggedRoute path={Routes.PROFILE}>
+            <MainTemplate>
+              <Profile />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path={Routes.DESKTOP}>
+            <MainTemplate>
+              <Desktop />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path={Routes.GRADES}>
+            <MainTemplate>
+              <Grades />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path={Routes.STUDENTS}>
+            <MainTemplate>
+              <Students />
+            </MainTemplate>
+          </LoggedRoute>
+          <LoggedRoute path={Routes.LOGIN}>
+            <WithoutMenuTemplate>
+              <Login />
+            </WithoutMenuTemplate>
+          </LoggedRoute>
         </Switch>
-      </div>
+      </UserProvider>
     </Router>
   );
 };
 
-export default App;
+export default Root;
