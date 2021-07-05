@@ -15,6 +15,25 @@ const GlobalStyle = createGlobalStyle`
     #root{
         height: 100%;
     }
+    /* width */
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.color.primary};
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.color.secondary};;
+    }
 `;
 
 export default GlobalStyle;

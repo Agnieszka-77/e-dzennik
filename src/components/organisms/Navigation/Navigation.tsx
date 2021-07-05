@@ -3,10 +3,7 @@ import { UserContext } from "providers/UserProvider";
 import StyledNavLink from "components/atoms/StyledNavLink/StyledNavLink";
 import Title from "components/atoms/Title/Title";
 import { Hamburger, Wrapper } from "./Navigation.style";
-import pulpitIcon from "assets/images/pulpitIcon.svg";
-import profileIcon from "assets/images/profileIcon.svg";
-import gradesIcon from "assets/images/gradesIcon.svg";
-import { Routes } from "utils/utils";
+import Menu from "components/molecules/Menu/Menu";
 
 const Navigation: React.FC = () => {
   const [{ level }, setUser] = useContext(UserContext);
@@ -27,24 +24,7 @@ const Navigation: React.FC = () => {
         <Title size="l" color="primary">
           Journal
         </Title>
-        <div>
-          <StyledNavLink to={Routes.DESKTOP} src={pulpitIcon} exact onClick={closeMenu}>
-            <span>desktop</span>
-          </StyledNavLink>
-          <StyledNavLink to={Routes.PROFILE} src={profileIcon} exact onClick={closeMenu}>
-            <span>profile</span>
-          </StyledNavLink>
-
-          {level === "0" ? (
-            <StyledNavLink to={Routes.GRADES} src={gradesIcon} exact onClick={closeMenu}>
-              <span>grades</span>
-            </StyledNavLink>
-          ) : (
-            <StyledNavLink to={Routes.STUDENTS} src={gradesIcon} exact onClick={closeMenu}>
-              <span>studends</span>
-            </StyledNavLink>
-          )}
-        </div>
+        <Menu level={level} closeMenu={closeMenu} />
         <StyledNavLink
           to="/"
           exact

@@ -1,54 +1,53 @@
-/* eslint-disable array-callback-return */
-import Title from "components/atoms/Title/Title";
-import SubjectGardes from "components/molecules/SubjectGardes/SubjectGardes";
-import UserData from "components/organisms/UserData/UserData";
+import React, { useContext, useState } from "react";
 import { UserContext } from "providers/UserProvider";
-import { useContext, useState } from "react";
-import styled from "styled-components";
+import Input from "components/atoms/Input/Input";
+import Title from "components/atoms/Title/Title";
+import SearchInput from "components/molecules/SearchInput/SearchInput";
+import { handleInput } from "utils/utils";
+import Student from "components/organisms/Student/Student";
+import SelectSubject from "components/molecules/SelectSubject/SelectSubject";
+import { ControlPanel, Wrapper } from "./Students.style";
 
-const Wrapper = styled.div`
-  padding: 10px 0px 20px;
-`;
-
-const Student = styled.div`
-  margin: 10px 0px 20px;
-  border-bottom: 20px solid ${({ theme: { color } }) => color.primary};
-`;
-
+//states of logic have been placed on the view level so as not to create an unnecessary organism that would be just an additional node
 const Students = () => {
-  const [, , users] = useContext(UserContext);
-  const [currentUsers, setCurrentUsers] = useState(users);
-  const [searchValue, setSearchValue] = useState("");
-
-  const handlerInput: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) => {
-    setSearchValue(value);
-  };
-
-  const hanlerCurrentUsers = () => {
-    const searchUsers = users.filter(({ id, name }) => name.includes(searchValue) || id.includes(searchValue));
-    setCurrentUsers(searchUsers);
-    if (searchValue === "") {
-      setCurrentUsers(users);
-    }
-  };
+  const [, , users, setUsers] = useContext(UserContext);
+  const [students, setStudents] = useState(users);
+  const [garde, setGarde] = useState(2);
+  const [subject, setSubject] = useState("english");
 
   return (
     <Wrapper>
-      <Title>Studends</Title>
-      <input type="text" placeholder="name" value={searchValue} onChange={handlerInput} onKeyUp={hanlerCurrentUsers} />
-      {currentUsers.map(({ id, name, level, subjects }) => {
-        if (level === "0")
-          return (
-            <Student key={id + name}>
-              <UserData id={id} name={name} />
-              <div>
-                {subjects?.map((subject) => {
-                  return <SubjectGardes key={id + name + subject.name} subject={subject} />;
-                })}
-              </div>
-            </Student>
-          );
-      })}
+      <Title color="primary">Studends</Title>
+      <ControlPanel>
+        <SearchInput users={users} setCurrentUsers={setStudents} />
+        <Input
+          type="number"
+          step="0.5"
+          min="2"
+          max="6"
+          placeholder="Garde"
+          value={garde}
+          onChange={(e) => handleInput(e, garde, setGarde)}
+        />
+        <SelectSubject subject={subject} setSubject={setSubject} subjects={["english", "c++", "c#"]} />
+      </ControlPanel>
+
+      {students.map(({ id, name, level, subjects }) =>
+        level === "0" ? (
+          <Student
+            key={id}
+            id={id}
+            name={name}
+            subjects={subjects}
+            subject={subject}
+            users={users}
+            setUsers={setUsers}
+            garde={garde}
+          />
+        ) : (
+          <React.Fragment key={id}></React.Fragment>
+        )
+      )}
     </Wrapper>
   );
 };

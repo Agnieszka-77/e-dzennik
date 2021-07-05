@@ -20,7 +20,8 @@ export const Name = styled.div`
 
 export const GardesBox = styled.div`
   display: felx;
-  border-top: solid 2px ${({ theme }) => theme.color.primary}; ;
+  border-top: solid 2px ${({ theme }) => theme.color.primary};
+  flex-wrap: wrap;
 `;
 
 export const Garde = styled.div`

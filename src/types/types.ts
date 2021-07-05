@@ -20,3 +20,24 @@ export type TypeValueUserContext = [
   IUser[],
   (users: IUser[]) => void
 ];
+
+export type PropsSerchInput = {
+  users: IUser[];
+  setCurrentUsers: React.Dispatch<React.SetStateAction<IUser[]>>;
+};
+
+export type PropsStudent = {
+  id: string;
+  name: string;
+  subjects: ISubjects[] | undefined;
+  users: IUser[];
+  setUsers: (users: IUser[]) => void;
+  subject: string;
+  garde: number;
+};
+
+export type PropsSelectSubject = {
+  subject: string;
+  setSubject: React.Dispatch<React.SetStateAction<string>>;
+  subjects: string[];
+};

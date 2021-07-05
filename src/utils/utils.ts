@@ -26,3 +26,36 @@ export const getUserById = (users: IUser[], id: string) => {
     return testUser.id === id;
   })[0];
 };
+
+export const handleInput = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  value: any,
+  setValue: React.Dispatch<React.SetStateAction<any>>
+): void => {
+  if (typeof value === "string") {
+    setValue(e.target.value);
+  } else if (typeof value === "number") {
+    setValue(Number(e.target.value));
+  }
+};
+
+export const addGrades = (
+  users: IUser[],
+  setUsers: (users: IUser[]) => void,
+  id: string,
+  choosedSubject: string,
+  garde: number
+) => {
+  const editUsers = users.map((user) => {
+    if (id === user.id) {
+      user.subjects = user.subjects?.map((subject) => {
+        if (choosedSubject === subject.name) {
+          subject.grades.push(garde);
+        }
+        return subject;
+      });
+    }
+    return user;
+  });
+  setUsers(editUsers);
+};
