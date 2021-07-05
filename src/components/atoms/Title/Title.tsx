@@ -1,11 +1,5 @@
 import styled from "styled-components";
-
-interface PropsTitle {
-  margin?: string;
-  padding?: string;
-  color?: "primary" | "secondary" | "thirdary" | "background";
-  size?: "xs" | "s" | "m" | "l" | "xl";
-}
+import { PropsTitle } from "types/types";
 
 const Title = styled.h2<PropsTitle>`
   padding: ${({ padding }) => (padding ? padding : "0")};

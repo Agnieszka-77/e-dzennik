@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "providers/UserProvider";
 import Box from "components/atoms/Box/Box";
 import Button from "components/atoms/Button/Button";
-import WelcomeUser from "view/pages/Login/WelcomeUser";
+import { WelcomeUser } from "utils/utils";
 import { ButtonPanel, Content, HighlightedText, LeftSide, RightSide, Wrapper } from "./Login.style";
 import Title from "components/atoms/Title/Title";
 import { handlerCurrentUser, getUserById } from "utils/utils";

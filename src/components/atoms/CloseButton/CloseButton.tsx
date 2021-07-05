@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CloseButton = styled.span`
+const CloseButton = styled.span<{ color?: "primary" | "secondary" | "thirdary" | "background" }>`
   position: relative;
   display: block;
   height: 30px;
@@ -13,7 +13,7 @@ const CloseButton = styled.span`
     left: 0;
     height: 5px;
     width: 100%;
-    background: ${({ theme }) => theme.color.primary};
+    background: ${({ theme, color }) => (color ? theme.color[color] : theme.color["primary"])};
     transform: translateY(-50%) rotate(45deg);
   }
   ::before {
@@ -23,7 +23,7 @@ const CloseButton = styled.span`
     left: 0;
     height: 5px;
     width: 100%;
-    background: ${({ theme }) => theme.color.primary};
+    background: ${({ theme, color }) => (color ? theme.color[color] : theme.color["primary"])};
     transform: translateY(-50%) rotate(-45deg);
   }
   :hover {

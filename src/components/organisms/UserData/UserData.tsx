@@ -1,6 +1,7 @@
 import Field from "components/molecules/Field/Field";
+import { PropsUserData } from "types/types";
 
-const UserData = ({ id, name, role }: { id?: string; name?: string; role?: string }) => {
+const UserData = ({ id, name, role }: PropsUserData) => {
   return (
     <>
       {name && <Field name="name" value={name} />}

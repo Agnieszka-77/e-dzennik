@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-type PropsBox = { width?: string; borderRadius?: string; backgroundColor?: string; margin?: string; border?: string };
+import { PropsBox } from "types/types";
 
 const Box = styled.article<PropsBox>`
   display: flex;
