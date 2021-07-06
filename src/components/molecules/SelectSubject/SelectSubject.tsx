@@ -9,7 +9,12 @@ const Wrapper = styled.select`
 `;
 
 const SelectSubject = ({ subject, setSubject, subjects }: PropsSelectSubject) => (
-  <Wrapper name="subject" id="subject" value={subject} onChange={(e) => handleInput(e, subject, setSubject)}>
+  <Wrapper
+    name="select-subject"
+    data-testid="select-subject"
+    value={subject}
+    onChange={(e) => handleInput(e, subject, setSubject)}
+  >
     {subjects.map((subjectName) => (
       <option value={subjectName} key={subjectName}>
         {subjectName}

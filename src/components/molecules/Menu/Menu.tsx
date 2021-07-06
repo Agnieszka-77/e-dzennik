@@ -20,7 +20,7 @@ const Menu = ({ level, closeMenu }: { level: string; closeMenu: React.MouseEvent
         </StyledNavLink>
       ) : (
         <StyledNavLink to={Routes.STUDENTS} src={gradesIcon} exact onClick={closeMenu}>
-          <span>studends</span>
+          <span>students</span>
         </StyledNavLink>
       )}
     </div>

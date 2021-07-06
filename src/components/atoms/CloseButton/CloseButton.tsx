@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-const CloseButton = styled.span<{ color?: "primary" | "secondary" | "thirdary" | "background" }>`
+const CloseButton = styled.button<{ color?: "primary" | "secondary" | "thirdary" | "background" }>`
   position: relative;
   display: block;
   height: 30px;
   width: 30px;
   margin-left: auto;
+  background-color: transparent;
+  border: none;
   ::after {
     content: " ";
     position: absolute;

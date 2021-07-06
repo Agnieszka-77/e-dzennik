@@ -19,7 +19,7 @@ const Student = ({ id, name, subjects, users, setUsers, subject, garde }: PropsS
   return (
     <Wrapper>
       <UserData id={id} name={name} />
-      <div>
+      <div data-testid={id}>
         {subjects?.map((subject) => {
           return <SubjectGardes key={id + name + subject.name} subject={subject} />;
         })}
