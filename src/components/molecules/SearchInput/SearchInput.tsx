@@ -18,7 +18,14 @@ const SearchInput = ({ users, setCurrentUsers }: PropsSerchInput) => {
   };
 
   return (
-    <Input type="text" placeholder="name or id" value={lookingValue} onChange={handlerInput} onKeyUp={hanlerlooking} />
+    <Input
+      type="text"
+      data-testid="search-input"
+      placeholder="name or id"
+      value={lookingValue}
+      onChange={handlerInput}
+      onKeyUp={hanlerlooking}
+    />
   );
 };
 

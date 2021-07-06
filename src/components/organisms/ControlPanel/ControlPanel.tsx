@@ -15,6 +15,7 @@ const ControlPanel = ({ users, setStudents, grade, setGrade, subject, setSubject
     <Wrapper>
       <SearchInput users={users} setCurrentUsers={setStudents} />
       <Input
+        data-testid="grand-input"
         type="number"
         step="0.5"
         min="2"
